@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Simple</title>
+    <!--Vinculo con CSS-->
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <div class="calculadora">
+            <div class="base">
+                <!--Título tamaño grande-->
+                <h1>Calculadora Simple</h1>
+            </div>
+                
+            <div class="bloque" id="operando_1">
+                <label for="operando1">Ingresa el primer operando:</label>
+                <br>
+                <!--Campo de texto operando1-->
+                <input type="number" name="operando1" id="operando1" placeholder="número" required/>
+            </div>
+
+            <div class="bloque" id="operador_">
+                <label for="operador">Selecciona el operador:</label>
+                <br>
+                <!--Menú desplegable-->
+                <select id="operador">
+                    <option value=""></option>
+                    <option value="suma">+</option>
+                    <option value="resta">-</option>
+                    <option value="multiplicación">x</option>
+                    <option value="división">/</option>
+                </select>
+            </div>
+
+            <div class="bloque" id="operando_2">
+                <label for="operando2">Ingresa el segundo operando:</label>
+                <br>
+                <!--Campo de texto operando2-->
+                <input type="number" id="operando2" name="operando2" placeholder="número" required>
+            </div>
+
+            <div class="botón">
+                <!--Botón que al ser presionado ejecuta la función functionResultado de JS-->
+                <button type="button" id="botónCalcular" onclick="functionResultado()">Calcular</button>
+            </div>
+            
+            <div class="base">
+                <p id="resultado_">Resultado:</p><br>
+                <!--Espacio en el que se mostrará el resultado de la operación o los mensajes de error-->
+                <p id="resultado"> </p><br>
+            </div>
+            
+            <div class="botón">
+                <!--Botón que al ser presionado ejecuta la función borrarCampos-->
+                <button type="button" id="botónLimpiar" onclick="borrarCampos()">Limpiar</button>
+            </div>
+    </div>
+    <!--Vinculo con JS-->
+    <script src="script.js"></script>
+    </body>
+</html>
