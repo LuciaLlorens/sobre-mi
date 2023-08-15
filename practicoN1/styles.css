@@ -1,0 +1,97 @@
+body {
+    /* Agrego imagen de fondo y lo configuro para que cubra todo y no se repita*/
+    background-image: url("fondoCalculadora.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    /*color de fondo por si las dudas*/
+    background-color:black;
+    /*altura minima del body según alto de ventana*/
+    min-height: 100vh;
+    /*hago que los elementos sean flexibles y luego los centro*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    /*letra del documento*/
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    /*centra el texto*/
+    text-align: center;
+    /*color del texto*/
+    color: #8f2d56;
+    /*en negrita*/
+    font-weight: bold;
+}
+
+.calculadora {
+    /* bordes de calculadora y color de fondo*/
+    border: 5px solid #D81159;
+    background-color: #f0d29c;
+    /*equinas redondeadas*/
+    border-radius: 35px;
+    /*espacio entre contenido y borde*/
+    padding: 25px;
+    /*ancho máximo*/
+    max-width: 600px;
+    width: 90%;
+    display: block;
+    /*margen automático de lados, lo que hace que se centre*/
+    margin: 20px auto;
+    text-align: center;
+}
+
+input[type="number"], 
+select {
+    display: block;
+    text-align: center;
+    padding: 10px;
+    /*margen inferior para separar elementos*/
+    margin-bottom: 10px;
+    /*color de bordes y esquinas redondeadas*/
+    border: 3px solid #218380;
+    border-radius: 15px;
+    /*tamaño de fuente*/
+    font-size: 20px;
+    margin: 0 auto 10px;
+}
+
+/*tamaños de los input, select y botones*/
+input[type="number"] {
+    width: 80%;
+}
+
+select {
+    width: 84%;
+}
+
+#botónCalcular {
+    font-size:20px;
+}
+
+#botónLimpiar {
+    font-size:16px;
+}
+
+button {
+    text-align: center;
+    margin-bottom: 10px; /*interlineado*/
+    background-color: #73D2DE; /* Color de fondo del botón */
+    color: #218380; /* Color de letra (texto) del botón */
+    border: 3px solid #218380;
+    border-radius: 15px;
+    padding: 10px;
+    cursor: pointer;
+    margin: 0 auto 10px;
+}
+
+#resultado_, 
+#resultado {
+    padding: 0px;
+    display: block;
+    margin: 5px 0;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+}
