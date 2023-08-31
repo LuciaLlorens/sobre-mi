@@ -1,0 +1,365 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #390099;
+    min-height: 100vh;
+    /* Pongo los elementos centrados*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/*No me queda claro por qué, pero cuando pongo que sea flex acá me quedan alineados los cuadros panelDeControl y empezamosElJuego */
+.juego {
+    display: flex;
+}
+
+/*Modifica lo que sería el primer cuadro. Sin las rondas, el resultado, ni los puntajes*/
+.panelDeControl {
+    padding: 10px;
+    background: #FFBD00;
+    border: 6px solid #6c0079;
+    border-radius: 20px;
+    width: fit-content;
+    margin-right: 5px; /* Para que haya espacio con empezamosElJuego*/
+    transition: box-shadow 0.4s ease; /*Para darle una sombra al fondo */  
+}
+
+.panelDeControl:hover {
+    box-shadow: 0 0 1.5rem #ffbd00; /*El sombreado cuando se pasa el puntero por encima*/
+}
+
+/* Estilo del título */
+h1 {
+    margin: 10px;
+    padding: 5px;
+    text-align: center;
+    color: #000;
+    background-color: #FFBD00;
+    border: 6px solid #390099;
+    border-radius: 20px;
+}
+
+/*Modifica el cuadro donde se pone el nombre del jugador*/
+#nombreJugador {
+    text-align: center;
+    margin: 0;
+    padding: 5px;
+    background: #9e0059;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 25px;
+    transition: box-shadow 0.4s ease; /* Le agrego la sombra*/
+}
+
+#nombreJugador:hover {
+    box-shadow: 0 0 1rem #9e0059;
+}
+
+/*Modifica el input donde se pone el nombre*/
+.inputNombre {
+    height: 20px;
+    margin: 5px; 
+    padding: 10px;
+    background: #cf0057;
+    display: flex;
+    justify-content: center;
+    border-radius: 5px;
+}
+
+/* Modifico el placeholder del input */
+input::placeholder {
+    color: #fff;
+    font-weight: bold;
+}
+
+/*modifica el estilo del nombre*/
+#jugador {
+    width: 100%;
+    text-align: center;
+    background: none;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    outline: 0px;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+/*Modificamos el cuadro en el que ponemos las opciones*/
+.opciones {
+    text-align: center;
+    margin: 10px;
+    padding: 10px;
+    border: 6px solid #ff8900;
+    border-radius: 7px;
+    font-size: 30px;
+    background-color: #ffa300;
+    transition: box-shadow 0.4s ease;
+}
+
+.opciones:hover {
+    box-shadow: 0 0 1rem #ff5400;
+}
+
+/*Modifica las imagenes*/
+.imagen {
+    width: 150px;
+    height: 150px;
+    margin: 0;
+    padding: 0px;
+    border-radius: 100%;
+}
+
+/*Modifica los botones de las imagenes*/
+.botónOpción {
+    border: 5px solid #390099;
+    border-radius: 100px;
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+    padding: 0px;
+    transition: box-shadow 0.4s ease;
+}
+
+/* Qué pasa cuando se pone el cursor encima de las imagenes */
+.botónOpción:hover {
+    opacity: 1;
+    cursor: pointer;
+    box-shadow: 0 0 1rem #9e0059;
+}
+
+/* Una clase creada en JS, qué sucede cuando se selecciona una de las imagenes */
+.opciónSeleccionada {
+    opacity: 1;
+    border-radius: 100px;
+    border: 5px solid #ff0054;
+    margin: 10px;
+}
+
+/*Modifica el botón "Jugar!"*/
+#botónJugar {
+    margin: 0 auto 10px;
+    padding: 5px 60px;
+    display: flex;
+    background-color: #cf0057;
+    border: 4px solid #9e0059;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 25px;
+    transition: box-shadow 0.4s ease;
+}
+
+#botónJugar:hover {
+    box-shadow: 0 0 1rem #9e0059;
+    padding: 10px 70px;
+    cursor: pointer;
+}
+
+/*Modifica el botón "Reiniciar"*/
+#botónReiniciar {
+    margin: 0 auto;
+    padding: 5px;
+    display: flex;
+    background-color: #6C0079;
+    border: 5px solid #390099;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 17px;
+    transition: box-shadow 0.4s ease;
+}
+
+#botónReiniciar:hover {
+    box-shadow: 0 0 1rem #390099;
+    padding: 8px;
+    cursor: pointer;
+}
+
+/*Estilo del segundo cuadro que aparece al apretar el botón "jugar!"*/
+#empezamosElJuego {
+    margin-left: 5px;
+    padding: 10px;
+    text-align: center;
+    color: #000;
+    background-color: #FFBD00;
+    border: 6px solid #6C0079;
+    border-radius: 20px;
+    display: none;
+    transition: box-shadow 0.4s ease;
+}
+
+#empezamosElJuego:hover {
+    box-shadow: 0 0 1.5rem #FFBD00;
+}
+
+/* Estilo del cuadro que muesta el número de la ronda */
+#numeroDeRonda {
+    margin: 10px;
+    padding: 5px;
+    background: #9e0059;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+}
+
+/* Datos que se corresponden con la ronda */
+#eleccionJugador,
+#eleccionComputadora {
+    font-size: 17px;
+}
+
+/* Estilo del cuadro que muestra quién ganó la ronda */
+#resultadoRonda {
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    transition: box-shadow 0.4s ease;
+}
+
+#resultadoRonda:hover {
+    box-shadow: 0 0 1.5rem #000;
+}
+
+/* Cuadro donde se muestran los puntajes */
+.puntajes {
+    margin: 0px;
+    padding: 0px;
+    border-radius: 5px;
+    color: #000;
+    border: 6px solid #ff8900;
+    background-color: #ffa300;
+    transition: box-shadow 0.4s ease;
+}
+
+.puntajes:hover {
+    box-shadow: 0 0 1.5rem #ff8900;
+}
+
+/* Puntajes del jugador */
+.punteroUsuario {
+    margin: 0;
+    padding: 0;
+}
+
+/* Título del puntaje del jugador */
+#nombreJugador_ {
+    font-weight: bold;
+    background-color: #6C0079;
+    border-radius: 0px;
+    color: #fff;
+}
+
+/* Puntajes de la computadora */
+.punteroComputadora {
+    margin: 0;
+    padding: 0;
+}
+
+/* Título de puntaje de la computadora */
+#nombreComputadora {
+    font-weight: bold;
+    background-color: #6C0079;
+    border-radius: 0px;
+    color: #fff;
+}
+
+/* Título de empates*/
+#empates {
+    font-weight: bold;
+    background-color: #6C0079;
+    border-radius: 0px;
+    color: #fff;
+}
+
+/* cantidad de empates */
+#cantidadEmpates {
+    color: #000;
+}
+
+/* Cuadro en el que se muestra el resultado final*/
+#resultadoFinal_ {
+    display: none;
+    margin: 10px 0;
+    padding: 0px;
+    background: #390099;
+    border-radius: 5px;
+    color: #fff;
+    border: 6px solid #000;
+    transition: box-shadow 0.4s ease;
+}
+
+#resultadoFinal_:hover {
+    box-shadow: 0 0 1.5rem #390099;
+}
+
+/* Título del cuadro de resultado final */
+#títuloResultadoFinal {
+    font-weight: bold;
+    font-size: 20px;
+    margin: 5px;
+    margin-bottom: 0px;
+}
+
+/* Cuadro en el que se muestra quién ha ganado el juego */
+#resultadoFinal {
+    margin: 5px;
+    padding: 20px;
+    background: linear-gradient(#390099, #6C0079, #9E0059, #CF0057, #FF0054, #FF2A2A, #FF5400, #FF8900, #FFA300, #FFBD00);
+    border-radius: 5px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+/*Estilos de imágenes finales*/
+#img1 {
+    display:none;
+    position: fixed;
+    left: 0; /*Que se pegue al borde izquierdo*/
+    opacity: 0.9;
+    z-index: 999; /*Valor para que esté delante de todo*/
+}
+
+#img2 {
+    display: none;
+    position: fixed;
+    right: 0; /*Que se pegue al borde derecho*/
+    opacity: 0.8;
+    z-index: 1; /* Un valor para que esté detrás de #resultadoFinal_ */
+}
+
+/* Quise agregarles a las imagenes una transición cuando aparecieran usando transition: opacity 0.4s ease y configurando el JS,
+pero las imagenes directamente se borraban. No lo pude solucionar. Así que opté por dejar su opacidad y entrada abrupta*/
+
+/* estilo del mensaje de error por no ingresar un nombre */
+#mensajeCampoVacíoNombre {
+    display: none;
+    margin: 3px;
+    padding: 5px;
+    justify-content: center;
+    background-color: #fff;
+    border: 3px solid red;
+    font-weight: bold;
+    font-size: 22px;
+    border-radius: 0;
+    color: red;
+    box-shadow: 0 0 1rem #000;
+}
+
+/* mensaje de error por no seleccionar una opción de piedra, papel o tijera */
+#mensajeSinSeleccion {
+    display: none;
+    margin: 3px;
+    padding: 5px;
+    justify-content: center;
+    background-color: #fff;
+    border: 3px solid red;
+    font-weight: bold;
+    font-size: 22px;
+    border-radius: 0;
+    color: red;
+    box-shadow: 0 0 1rem #000;
+}
