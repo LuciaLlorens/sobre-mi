@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piedra, Papel o Tijera</title>
+    <!--Vinculo con CSS-->
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <div class="juego">
+        <!-- Imagen de la izquierda, aparece con el resultado final -->
+        <div class="img" id="img1"><img src="SarahConnor.png" alt="Sarah Connor"></div>
+
+        <div class="panelDeControl" id="panelDeControl">
+            <div class="base">
+                <!--Título tamaño grande-->
+                <h1>Piedra, Papel o Tijera</h1>
+            </div>
+
+            <div class="bloque" id="nombreJugador">
+                <label for="jugador">Jugador:</label>
+                <br>
+                <!--Campo de texto para el nombre del jugador-->
+                <div class="inputNombre">
+                    <input type="text" name="jugador" id="jugador" placeholder="Ingresa un nombre!" required/>
+                </div>
+                <!--Mensaje oculto; visible en el caso de que no se ingrese un nombre-->
+                <p id="mensajeCampoVacíoNombre">Ingresa un nombre para jugar!</p>
+            </div>
+
+            <div class="opciones">
+                <!--Grupo de opciones para seleccionar-->
+                <div class="botón_imagen">
+                    <!-- Imagen seleccionable de Piedra-->
+                    <button type=button value="piedra" id="piedra" class="botónOpción" style="cursor:pointer;"><img class="imagen" src="Piedra.jpg" alt="piedra"></button>
+                    <!-- Imagen seleccionable de Papel-->
+                    <button type=button value="papel" id="papel" class="botónOpción" style="cursor:pointer;"><img class="imagen" src="Papel.jpg" alt="papel"></button>
+                    <!-- Imagen seleccionable de Tijera-->
+                    <button type="button" value="tijera" id="tijera" class="botónOpción" style="cursor:pointer;"><img class="imagen" src="Tijera1.jpg" alt="tijera"></button>
+                </div>
+                <!--Mensaje oculto; visible en el caso de que no se seleccione una opción-->
+                <p id="mensajeSinSeleccion">¿Piedra, papel o tijera?</p>
+            </div>
+
+            <div class="botón">
+                <!--Botón que al ser presionado ejecuta la función determinarGanadorRonda(jugadaUsuario)-->
+                <button type="button" id="botónJugar" onclick="determinarGanadorRonda(jugadaUsuario)">Jugar!</button>
+            </div>
+
+            <div class="botón">
+                <!--Botón que al ser presionado ejecuta la función borrarCampos()-->
+                <button type="button" id="botónReiniciar" onclick="borrarCampos()">Reiniciar</button>
+            </div>
+        </div>
+        
+        <!--Espacio para los resultados de cada ronda-->
+        <div class="empezamosElJuego" id="empezamosElJuego">
+            <div class="rondas">
+                <p id="numeroDeRonda"></p>
+                <p id="eleccionJugador"></p>
+                <p id="eleccionComputadora"></p>
+                <p id="resultadoRonda"></p>
+            </div>
+
+            <!--Espacio para el conteo de los puntajes generales-->
+            <div class="puntajes">
+                <div class="punteroUsuario">
+                    <p id="nombreJugador_"></p>
+                    <p id="puntajeUsuario">0</p>
+                </div>
+                <div class="punteroComputadora">
+                    <p id="nombreComputadora">Computadora</p>
+                    <p id="puntajeComputadora">0</p>
+                </div>
+                <p id="empates">empates</p>
+                <p id="cantidadEmpates">0</p>
+            </div>
+
+            <!--Espacio para presentar el resultado final (mejor de 3 o 5 rondas)-->
+            <div class="resultadoFinal" id="resultadoFinal_">
+                <p id="títuloResultadoFinal">Resultado final:</p>
+                <p id="resultadoFinal"></p>
+            </div>
+        </div>
+
+        <!-- Imagen de la derecha, que aparece con el resultado final -->
+        <div class="img" id="img2"><img src="Terminator1.png" alt="Terminator"></div>
+    </div>
+<!--Vinculo con JS-->
+<script src="script.js"></script>
+</body>
+</html>
